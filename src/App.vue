@@ -71,10 +71,14 @@
             };
         },
         mounted() {
-            this.loadList();
+            this.load();
+            window.addEventListener('scroll', this.onScroll);
+        },
+        beforeDestroy() {
+            window.removeEventListener('scroll', this.onScroll);
         },
         methods: {
-            loadList() {
+            load() {
                 this.get()
                     .then(res => {
                         if (res.status === 200) {
@@ -84,7 +88,17 @@
                             ];
                         }
                     });
-            }
+            },
+            onScroll(event) {
+                let should = false;
+                const scrollTop = event.target === document ? document.documentElement.scrollTop : event.target.scrollTop;
+                const viewportHeight = document.documentElement.getBoundingClientRect().height;
+                const scrollHeight = document.documentElement.scrollHeight;
+                
+                should = scrollTop + viewportHeight >= scrollHeight;
+                console.log(should);
+            },
+            
         }
     };
 </script>
