@@ -32,8 +32,17 @@
       </div>
       <div class="container">
         <div class="columns users">
-          <div class="col is-6">
-            <user-card />
+          <div 
+              v-for="(user, key) in list"
+              :key="key"
+              class="col is-6"
+          >
+            <user-card :user="user"/>
+          </div>
+        </div>
+        <div v-if="loading" class="loader">
+          <div class="fa-3x">
+            <i class="fas fa-spinner fa-pulse"></i>
           </div>
         </div>
       </div>
@@ -42,10 +51,41 @@
 </template>
 
 <script>
+    import FetchMixin from '@project_src/mixins/FetchMixin';
     import UserCard from '@project_src/components/UserCard.vue';
+
     export default {
         name: 'App',
-        components: { UserCard }
+        components: { UserCard },
+        mixins: [FetchMixin],
+        data() {
+            return {
+                apiUrl: 'https://randomuser.me/api/',
+                params: {
+                    exclude: {
+                        key: 'exc',
+                        value: ['location', 'gender', 'registered', 'cell', 'nat']
+                    }
+                },
+                list: []
+            };
+        },
+        mounted() {
+            this.loadList();
+        },
+        methods: {
+            loadList() {
+                this.get()
+                    .then(res => {
+                        if (res.status === 200) {
+                            this.list = [
+                                ...this.list,
+                                ...res.data
+                            ];
+                        }
+                    });
+            }
+        }
     };
 </script>
 
@@ -86,6 +126,13 @@
       width: 100%;
       height: 400px;
       background-color: $secondary-color;
+    }
+    
+    .loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 0;
     }
   }
 </style>
