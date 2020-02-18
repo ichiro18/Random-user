@@ -1,0 +1,14 @@
+$primary-color: #222 !default;
+$secondary-color: #2c2e31 !default;
+$accent-color: #83ba43 !default;
+$invert-color: white !default;
+
+$text-color-primary: $primary-color !default;
+$text-color-secondary: #666 !default;
+
+$border-color: #ccc !default;
+
+$box-shadow: 0 0 5px $border-color !default;
+
+$tablet-width: 768px;
+$desktop-width: 1200px;

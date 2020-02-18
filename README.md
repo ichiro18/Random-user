@@ -1,6 +1,6 @@
 ![Random user](https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGWx8sLLzB644dIPSIUwO0gc=/randomuser)
 # Random user
-> Simple example of infinite scroll
+> Simple example of infinite scroll for [task](https://docs.google.com/document/d/1KlIf8bakSVkhS9DT4TnZ2ikovAQJBXTBVvkFJThsJhw/edit#)
 
 ![Version](https://img.shields.io/badge/version-0.0.1-brightgreen.svg?longCache=true&style=flat-square)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg?longCache=true&style=flat-square)
@@ -40,13 +40,14 @@ For transparency into the release cycle and in striving to maintain backward com
 For more information on SemVer, please visit http://semver.org/.
 
 ## TODO
-- [ ] Make builder
-- [ ] VueJS SPA skeleton
-- [ ] Make linters
-- [ ] Build list card
-- [ ] Integrate with [API Random user](https://randomuser.me/)
-- [ ] Infinity scroll
+- [X] Make builder
+- [X] VueJS SPA skeleton
+- [X] Make linters
+- [X] Build list card
+- [X] Integrate with [API Random user](https://randomuser.me/)
+- [X] Infinity scroll
 - [ ] Documentation
+- [ ] Demo
 
 ## Authors
 Authors
