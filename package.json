@@ -13,7 +13,7 @@
     "build:dev": "webpack --config build/webpack.base.config.js",
     "build:doc": "webpack --config build/webpack.doc.config.js",
     "build": "webpack --config build/webpack.prod.config.js",
-    "doc": "jsdoc src -r -c jsdoc.conf.js -d doc/docs --pedantic",
+    "doc": "jsdoc src -r -c jsdoc.conf.js -d docs/docs --pedantic",
     "demo": "npm run build:doc && npm run doc"
   },
   "devDependencies": {

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Documentation Source: App.vue</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-App.html">App</a></li><li><a href="module-components_UserCard.html">components/UserCard</a></li><li><a href="module-mixins_FetchMixin.html">mixins/FetchMixin</a></li><li><a href="module-mixins_UtilsMixin.html">mixins/UtilsMixin</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#FIELDS">FIELDS</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: App.vue</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">&lt;template>
+    &lt;div class="page-content">
+        &lt;header class="header">
+            &lt;div class="container">
+                &lt;a href="/" class="brand">
+                    &lt;img
+                        src="./assets/images/logo.png"
+                        alt="logo"
+                        class="image logo"
+                    />
+                    &lt;span class="title">Random User Infinity Scroll&lt;/span>
+                &lt;/a>
+            &lt;/div>
+        &lt;/header>
+        &lt;main class="content">
+            &lt;div class="hero">
+                &lt;div class="container">
+                    &lt;h3 class="title">
+                        Random Users with Infinity scroll
+                    &lt;/h3>
+                    &lt;p class="description">
+                        Integration
+                        &lt;a href="https://randomuser.me/" target="_blank">
+                            Random User API
+                        &lt;/a>
+                        with Infinity Scroll, Preloader. With
+                        &lt;a href="./docs" target="_blank">
+                            documentation
+                        &lt;/a>
+                    &lt;/p>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="container">
+                &lt;div class="columns users">
+                    &lt;div
+                        v-for="(user, key) in list"
+                        :key="key"
+                        class="col is-6"
+                    >
+                        &lt;user-card :user="user" />
+                    &lt;/div>
+                &lt;/div>
+                &lt;div v-if="loading" class="loader">
+                    &lt;div class="fa-3x">
+                        &lt;i class="fas fa-spinner fa-pulse">&lt;/i>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/main>
+    &lt;/div>
+&lt;/template>
+
+&lt;script>
+import FetchMixin from '@project_src/mixins/FetchMixin';
+import UserCard from '@project_src/components/UserCard.vue';
+import UtilsMixin from '@project_src/mixins/UtilsMixin';
+
+/**
+ * Root App component
+ * @desc Load and render user list
+ * @vue-data {String} [apiUrl = 'https://randomuser.me/api/'] API Endpoint
+ * @vue-data {Array} [list = []] User data list
+ * @mixes FetchMixin
+ * @mixes UtilsMixin
+ */
+export default {
+    name: 'App',
+    components: { UserCard },
+    mixins: [FetchMixin, UtilsMixin],
+    data() {
+        return {
+            apiUrl: 'https://randomuser.me/api/',
+            list: [],
+        };
+    },
+    /**
+     * App.vue `mounted` hook
+     */
+    mounted() {
+        this.onMounted();
+    },
+    /**
+     * App.vue `beforeDestroy` hook
+     */
+    beforeDestroy() {
+        this.onBeforeDestroy();
+    },
+    methods: {
+        /**
+         * Append user list from API Response to list
+         * @returns void
+         */
+        load() {
+            this.get().then(res => {
+                if (res.status === 200) {
+                    this.list = [...this.list, ...res.data];
+                }
+            });
+        },
+        /**
+         * Window scroll behavior
+         * @desc Trigger load() when injected scroll to document bottom
+         * @param {Event} event Scroll event
+         * @listens window#scroll
+         */
+        onScroll(event) {
+            // set default value
+            let should = false;
+            // get scroll top
+            const scrollTop =
+                event.target === document
+                    ? document.documentElement.scrollTop
+                    : event.target.scrollTop;
+            // get height of BBOX
+            const viewportHeight = document.documentElement.getBoundingClientRect()
+                .height;
+            // get document full height
+            const scrollHeight = document.documentElement.scrollHeight;
+
+            // calc should
+            should = scrollTop + viewportHeight >= scrollHeight;
+
+            if (should &amp;&amp; !this.loading) {
+                this.load();
+            }
+        },
+        /**
+         * App.vue `mounted` hook
+         * @desc Preload User list &amp;&amp; register throttled listener
+         */
+        onMounted() {
+            // preload list
+            this.load();
+            // add event listener on scroll
+            window.addEventListener(
+                'scroll',
+                this.throttle(this.onScroll.bind(this), 200)
+            );
+        },
+        /**
+         * App.vue `beforeDestroy` hook
+         * @desc Remove registered Event Listener
+         */
+        onBeforeDestroy() {
+            window.removeEventListener(
+                'scroll',
+                this.throttle(this.onScroll.bind(this), 200)
+            );
+        },
+    },
+};
+&lt;/script>
+
+&lt;style lang="scss">
+@import './assets/styles/config/variables';
+
+.content {
+    position: relative;
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0 110px;
+        text-align: center;
+        color: $invert-color;
+
+        .title {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.125;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+    }
+
+    &amp;::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background-color: $secondary-color;
+    }
+
+    .loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+    }
+}
+&lt;/style>
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+	
+		on 2020-02-19T01:11:40+03:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
