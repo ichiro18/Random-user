@@ -30,13 +30,22 @@
           </p>
         </div>
       </div>
+      <div class="container">
+        <div class="columns users">
+          <div class="col is-6">
+            <user-card />
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
+    import UserCard from '@project_src/components/UserCard.vue';
     export default {
-        name: 'App'
+        name: 'App',
+        components: { UserCard }
     };
 </script>
 
