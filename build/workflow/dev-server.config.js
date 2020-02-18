@@ -1,7 +1,7 @@
-const baseConfig = require('../webpack.base.config');
+const config = require('../common/config');
 
 exports.config = {
-    contentBase: baseConfig.PATH.dist,
+    contentBase: config.PATH.dist,
     compress: true,
     hot: true,
     open: false,

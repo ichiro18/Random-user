@@ -4,6 +4,7 @@
 // * Global
 const merge = require('webpack-merge');
 // * Configs
+const config = require('./common/config');
 const baseConfig = require('./webpack.base.config');
 // * Plugins
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
@@ -30,7 +31,7 @@ const devPlugins = {
                 messages: [
                     isDevServer
                         ? 'Your application is running here http://localhost:3000'
-                        : 'Your application is build here ' + baseConfig.PATH.dist
+                        : 'Your application is build here ' + config.PATH.dist
                 ]
             }
         })
@@ -38,7 +39,7 @@ const devPlugins = {
 };
 
 module.exports = merge(
-    baseConfig.config,
+    baseConfig,
     devConfig,
     devPlugins
 );

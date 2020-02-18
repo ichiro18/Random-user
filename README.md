@@ -42,7 +42,7 @@ For more information on SemVer, please visit http://semver.org/.
 ## TODO
 - [X] Make builder
 - [X] VueJS SPA skeleton
-- [ ] Make linters
+- [X] Make linters
 - [ ] Build list card
 - [ ] Integrate with [API Random user](https://randomuser.me/)
 - [ ] Infinity scroll
