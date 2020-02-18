@@ -1,5 +1,18 @@
+'use strict';
 import axios from 'axios';
 
+/**
+ * @mixin
+ * @module mixins/FetchMixin
+ * @desc API connector
+ * @vue-data {Boolean} [loading = false] loading state
+ * @vue-data {Boolean} [useAxios = true] use `Axios` for connection
+ * @vue-data {String} [apiUrl = ''] API Endpoint URI
+ * @vue-data {Object} response - Last response saved data
+ * @vue-data {Number} [response.status = 200] Response status code
+ * @vue-data {String} [response.statusText = ''] Response status text
+ * @vue-data {Object} response.data Response data payload
+ */
 export default {
     data() {
         return {
@@ -14,6 +27,11 @@ export default {
         };
     },
     methods: {
+        /**
+         * Send GET HTTP Request
+         * @desc Safe Send GET HTTP request. If is loading should reset request
+         * @return {Promise} Promise object represent the response data or error
+         */
         get() {
             if (this.loading) return;
             this.loading = true;

@@ -10,10 +10,10 @@ exports.config = {
                             esModule: false,
                             name: 'fonts/[name].[ext]',
                             publicPath: '../',
-                        }
+                        },
                     },
-                ]
-            }
-        ]
-    }
+                ],
+            },
+        ],
+    },
 };

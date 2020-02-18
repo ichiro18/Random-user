@@ -1,4 +1,4 @@
-![Random user](src/assets/images/logo.png)
+![Random user](https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGWx8sLLzB644dIPSIUwO0gc=/randomuser)
 # Random user
 > Simple example of infinite scroll for [task](https://docs.google.com/document/d/1KlIf8bakSVkhS9DT4TnZ2ikovAQJBXTBVvkFJThsJhw/edit#)
 
@@ -6,12 +6,10 @@
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg?longCache=true&style=flat-square)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen.svg?longCache=true&style=flat-square)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
-![Docs](https://img.shields.io/badge/docs-100%25-brightgreen.svg?longCache=true&style=flat-square)
-
-* screenshot
+![Docs](https://img.shields.io/badge/docs-jsdoc-brightgreen.svg?longCache=true&style=flat-square)
 
 ## Demo
-View demo [here](http://localhost:3000)
+View demo [here](https://ichiro18.github.io/Random-user/)
 
 ## Requirements
 * [NodeJS](https://nodejs.org/en/)
@@ -46,8 +44,8 @@ For more information on SemVer, please visit http://semver.org/.
 - [X] Build list card
 - [X] Integrate with [API Random user](https://randomuser.me/)
 - [X] Infinity scroll
-- [ ] Documentation
-- [ ] Demo
+- [X] Documentation
+- [X] Demo
 
 ## Authors
 Authors
