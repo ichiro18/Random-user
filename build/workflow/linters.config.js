@@ -8,13 +8,13 @@ exports.config = {
                 enforce: 'pre',
                 test: /\.(js|vue)$/,
                 loader: 'eslint-loader',
-                exclude: /node_modules/
-            }
-        ]
+                exclude: /node_modules/,
+            },
+        ],
     },
     plugins: [
         new StyleLintPlugin({
             files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
-        })
-    ]
+        }),
+    ],
 };

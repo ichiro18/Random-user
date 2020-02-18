@@ -6,5 +6,5 @@ exports.config = {
     hot: true,
     open: false,
     port: 3000,
-    quiet: true
+    quiet: true,
 };

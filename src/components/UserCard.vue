@@ -16,8 +16,9 @@
                     :class="{
                         'item__value--capitalized': userData.capitalized,
                     }"
-                    >{{ userData.value }}</span
                 >
+                    {{ userData.value }}
+                </span>
             </div>
             <ul class="detail__fields">
                 <li
@@ -71,6 +72,12 @@
 </template>
 
 <script>
+/**
+ * @constant
+ * @desc Default mapping data field with Response
+ * @type {{birthday: string, phone: string, name: string, login: string, email: string}}
+ * @default
+ */
 const FIELDS = {
     name: 'name',
     birthday: 'dob',
@@ -79,6 +86,14 @@ const FIELDS = {
     login: 'login',
 };
 
+/**
+ * @module components/UserCard
+ * @desc UserCard component for render user data
+ * @vue-prop {Object} user List item of users
+ * @vue-data {Object} [fields = FIELDS] bridge to fields constant
+ * @vue-data {String} [currentField = 'name'] Filter types of fields
+ * @vue-computed {{capitalized: boolean, value: *, desc: string}} userData - Fill data for current field
+ */
 export default {
     name: 'UserCard',
     props: {
@@ -90,8 +105,8 @@ export default {
                     if (!val[item]) return false;
                 });
                 return true;
-            }
-        }
+            },
+        },
     },
     data() {
         return {
@@ -158,11 +173,23 @@ export default {
         },
     },
     methods: {
+        /**
+         * Update current field
+         * @desc change selected field Data
+         * @param {String} field - field value of FIELDS || any string
+         */
         selectData(field) {
             const index = Object.values(FIELDS).indexOf(field);
             this.currentField =
                 index >= 0 ? Object.values(FIELDS)[index] : FIELDS.name;
         },
+
+        /**
+         * Timestamp parser
+         * @desc Parse timestamp to DataTime Locale string
+         * @param {Date} timestamp - timestamp to parsed
+         * @return {string} A locale date string
+         */
         parseDate(timestamp) {
             return new Date(timestamp).toLocaleDateString();
         },

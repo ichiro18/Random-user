@@ -10,8 +10,8 @@ exports.config = {
                     process.env.NODE_ENV !== 'production'
                         ? 'vue-style-loader'
                         : MiniCssExtractPlugin.loader,
-                    'css-loader'
-                ]
+                    'css-loader',
+                ],
             },
             // SASS
             {
@@ -21,14 +21,14 @@ exports.config = {
                         ? 'vue-style-loader'
                         : MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader'
-                ]
-            }
-        ]
+                    'sass-loader',
+                ],
+            },
+        ],
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'style.css'
-        })
-    ]
+            filename: 'style.css',
+        }),
+    ],
 };

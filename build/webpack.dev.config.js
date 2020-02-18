@@ -20,7 +20,7 @@ const isDevServer = !!process.argv.find(
 const devConfig = {
     mode: 'development',
     devtool: 'source-map',
-    devServer: isDevServer ? devServer.config : {}
+    devServer: isDevServer ? devServer.config : {},
 };
 
 const devPlugins = {
@@ -31,15 +31,11 @@ const devPlugins = {
                 messages: [
                     isDevServer
                         ? 'Your application is running here http://localhost:3000'
-                        : 'Your application is build here ' + config.PATH.dist
-                ]
-            }
-        })
-    ]
+                        : 'Your application is build here ' + config.PATH.dist,
+                ],
+            },
+        }),
+    ],
 };
 
-module.exports = merge(
-    baseConfig,
-    devConfig,
-    devPlugins
-);
+module.exports = merge(baseConfig, devConfig, devPlugins);

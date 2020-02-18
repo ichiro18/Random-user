@@ -24,18 +24,18 @@ const baseConfig = {
     mode: 'development',
     devtool: 'source-map',
     entry: {
-        index: path.join(config.PATH.source, 'index.js')
+        index: path.join(config.PATH.source, 'index.js'),
     },
     output: {
         path: config.PATH.dist,
-        filename: '[name].js'
+        filename: '[name].js',
     },
     resolve: {
         extensions: ['.js', '.json'],
         alias: {
-            '@project_src': config.PATH.source
-        }
-    }
+            '@project_src': config.PATH.source,
+        },
+    },
 };
 
 const basePlugins = {
@@ -46,11 +46,10 @@ const basePlugins = {
             inject: false,
             template: require('html-webpack-template'),
             appMountId: 'app',
-            title: packageConfig.title
-        })
-    ]
+            title: packageConfig.title,
+        }),
+    ],
 };
-
 
 module.exports = merge(
     baseConfig,
