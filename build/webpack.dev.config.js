@@ -42,5 +42,3 @@ module.exports = merge(
     devConfig,
     devPlugins
 );
-
-console.log(module.exports);

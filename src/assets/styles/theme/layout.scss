@@ -1,0 +1,84 @@
+@import "../config/variables";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+main,
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header,
+.header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: $primary-color;
+  color: $invert-color;
+
+  .brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+    max-height: 50px;
+    text-decoration: none;
+    color: inherit;
+    .logo {
+      width: auto;
+      max-height: 2rem;
+      margin-right: 1rem;
+    }
+    .title {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: -0.75rem -0.75rem 0;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem;
+
+  @for $i from 0 through 12 {
+    &.is-#{$i} {
+      flex: none;
+      width: percentage($i / 12);
+    }
+    &.is-offset-#{$i} {
+      margin-left: percentage($i / 12)
+    }
+  }
+}

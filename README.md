@@ -1,4 +1,4 @@
-![Random user](https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGWx8sLLzB644dIPSIUwO0gc=/randomuser)
+![Random user](src/assets/images/logo.png)
 # Random user
 > Simple example of infinite scroll for [task](https://docs.google.com/document/d/1KlIf8bakSVkhS9DT4TnZ2ikovAQJBXTBVvkFJThsJhw/edit#)
 
@@ -41,7 +41,7 @@ For more information on SemVer, please visit http://semver.org/.
 
 ## TODO
 - [X] Make builder
-- [ ] VueJS SPA skeleton
+- [X] VueJS SPA skeleton
 - [ ] Make linters
 - [ ] Build list card
 - [ ] Integrate with [API Random user](https://randomuser.me/)
