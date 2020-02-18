@@ -1,4 +1,4 @@
-![Random user](src/assets/images/logo.png)
+![Random user](https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGWx8sLLzB644dIPSIUwO0gc=/randomuser)
 # Random user
 > Simple example of infinite scroll for [task](https://docs.google.com/document/d/1KlIf8bakSVkhS9DT4TnZ2ikovAQJBXTBVvkFJThsJhw/edit#)
 

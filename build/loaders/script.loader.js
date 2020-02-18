@@ -6,16 +6,14 @@ exports.config = {
             // Vue
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
             },
             // ES6
             {
                 test: /\.js$/,
-                loader: 'babel-loader'
-            }
-        ]
+                loader: 'babel-loader',
+            },
+        ],
     },
-    plugins: [
-        new VueLoaderPlugin()
-    ]
+    plugins: [new VueLoaderPlugin()],
 };
