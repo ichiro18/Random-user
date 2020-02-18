@@ -35,6 +35,9 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "normalize.css": "^8.0.1",
+    "roboto-fontface": "^0.10.0",
     "vue": "^2.6.11"
   }
 }

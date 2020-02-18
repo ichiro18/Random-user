@@ -4,7 +4,14 @@ exports.config = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            esModule: false,
+                            name: 'images/[name].[ext]',
+                            publicPath: '../',
+                        }
+                    }
                 ]
             }
         ]
