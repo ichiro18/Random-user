@@ -45,8 +45,9 @@ For more information on SemVer, please visit http://semver.org/.
 - [X] Make linters
 - [X] Build list card
 - [X] Integrate with [API Random user](https://randomuser.me/)
-- [ ] Infinity scroll
+- [X] Infinity scroll
 - [ ] Documentation
+- [ ] Demo
 
 ## Authors
 Authors
