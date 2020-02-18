@@ -24,7 +24,7 @@
                             Random User API
                         </a>
                         with Infinity Scroll, Preloader. With
-                        <a href="/doc" target="_blank">
+                        <a href="./docs" target="_blank">
                             documentation
                         </a>
                     </p>

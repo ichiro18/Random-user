@@ -11,7 +11,10 @@
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "build:dev": "webpack --config build/webpack.base.config.js",
-    "doc": "jsdoc src -r -c jsdoc.conf.js -d dist/docs --pedantic"
+    "build:doc": "webpack --config build/webpack.doc.config.js",
+    "build": "webpack --config build/webpack.prod.config.js",
+    "doc": "jsdoc src -r -c jsdoc.conf.js -d doc/docs --pedantic",
+    "demo": "npm run build:doc && npm run doc"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
