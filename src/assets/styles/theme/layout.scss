@@ -46,18 +46,19 @@ header,
     max-height: 50px;
     text-decoration: none;
     color: inherit;
+
     .logo {
       width: auto;
       max-height: 2rem;
       margin-right: 1rem;
     }
+
     .title {
       font-size: 1.5rem;
       line-height: 2rem;
     }
   }
 }
-
 
 .columns {
   display: flex;
@@ -73,12 +74,14 @@ header,
   padding: 0.75rem;
 
   @for $i from 0 through 12 {
+
     &.is-#{$i} {
       flex: none;
       width: percentage($i / 12);
     }
+
     &.is-offset-#{$i} {
-      margin-left: percentage($i / 12)
+      margin-left: percentage($i / 12);
     }
   }
 }
